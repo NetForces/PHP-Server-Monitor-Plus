@@ -73,6 +73,14 @@ class smUpdaterStatus extends smCore {
 			case 'website':
 				$result = $this->updateWebsite($max_runs);
 				break;
+                        case 'ESXi':
+                                $result = $this->updateService($max_runs);
+                                break;
+                        case 'Asterisk':
+                                $result = $this->updateService($max_runs);
+			case 'Firewall':
+                                $result = $this->updateService($max_runs);
+
 		}
 		return $result;
 

@@ -79,7 +79,7 @@ $tables = array(
 				  `ip` varchar(100) NOT NULL,
 				  `port` int(5) NOT NULL,
 				  `label` varchar(255) NOT NULL,
-				  `type` enum('service','website') NOT NULL default 'service',
+				  `type` enum('service','website','ESXi','Asterisk','Firewall') NOT NULL default 'service',
 				  `status` enum('on','off') NOT NULL default 'on',
 				  `error` varchar(255) NOT NULL,
 				   `rtime` FLOAT(9, 7) NOT NULL,

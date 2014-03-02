@@ -18,14 +18,14 @@
                 <th>&nbsp;</th>
                 <th>{label_label}</th>
                 <th>{label_domain}</th>
-                <th>{label_port}</th>
+                <!-- <th>{label_port}</th> -->
                 <th>{label_type}</th>
                 <th>{label_last_check}</th>
                 <th>{label_rtime}</th>
                 <th>{label_last_online}</th>
                 <th>{label_monitoring}</th>
-                <th>{label_send_email}</th>
-                <th>{label_send_sms}</th>
+                <!-- <th>{label_send_email}</th>
+                <th>{label_send_sms}</th> -->
                 <th width="75">{label_action}</th>
             </tr>
         </thead>
@@ -39,14 +39,14 @@
                 </td>
                 <td>{label}</td>
                 <td>{ip}</td>
-                <td>{port}</td>
+                <!-- <td>{port}</td> -->
                 <td>{type}</td>
                 <td>{last_check}</td>
                 <td>{rtime} s</td>
                 <td>{last_online}</td>
                 <td>{active}</td>
-                <td>{email}</td>
-                <td>{sms}</td>
+                <!-- <td>{email}</td>
+                <td>{sms}</td> -->
                 <td>
                     <a class="btn btn-small" href="index.php?type=servers&amp;edit={server_id}" title="{label_edit}">
                         <i class="icon-pencil"></i>
@@ -98,6 +98,9 @@
                     <select name="type">
                         <option value="service" {edit_type_selected_service}>Service</option>
                         <option value="website" {edit_type_selected_website}>Website</option>
+			<option value="ESXi" {edit_type_selected_ESXi}>ESXi</option>
+			<option value="Asterisk" {edit_type_selected_Asterisk}>Asterisk</option>
+			<option value="Firewall" {edit_type_selected_Firewall}>Firewall</option>
                      </select>
                 </div>
             </div>

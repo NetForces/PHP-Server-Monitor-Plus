@@ -149,10 +149,17 @@ class modServers extends modCore {
 		for ($x = 0; $x < $server_count; $x++) {
 			$servers[$x]['class'] = ($x & 1) ? 'odd' : 'even';
 			$servers[$x]['rtime'] = round((float) $servers[$x]['rtime'], 4);
+			$server_ip=$servers[$x]['ip'];
 
 			if($servers[$x]['type'] == 'website') {
 				// add link to label
-				$servers[$x]['ip'] = '<a href="'.$servers[$x]['ip'].'" target="_blank">'.$servers[$x]['ip'].'</a>';
+				$servers[$x]['ip'] = '<a href="http://'.$servers[$x]['ip'].'" target="_blank">'.$servers[$x]['ip'].'</a>';
+			}
+			if($servers[$x]['type'] == 'Asterisk') {
+				$servers[$x]['ip'] .= '&nbsp;&nbsp;<a href="http://'.$server_ip.'" target="_blank"><img src="img/freepbx.png" alt="ssh" width="20"></a>';
+			}	
+			if($servers[$x]['type'] == 'Asterisk' || $servers[$x]['type'] == 'Firewall') {
+				$servers[$x]['ip'] .= '&nbsp;&nbsp;<a href="ssh://root@'.$server_ip.':'.$servers[$x]['port'].'" ><img src="img/ssh.jpg" alt="ssh" width="20"></a>';
 			}
 		}
 		// add servers to template
