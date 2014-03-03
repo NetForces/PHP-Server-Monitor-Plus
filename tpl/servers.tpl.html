@@ -120,7 +120,7 @@
     $(document).bind('ready', function(){
         $('#nav_option_servers').addClass('active');
 
-$('#myModal').on('shown', function() {
+$('#myModal').on('show', function() {
         console.log("Here");
         var xhr = new XMLHttpRequest();
 xhr.open("GET", "api/server_detail.php");
