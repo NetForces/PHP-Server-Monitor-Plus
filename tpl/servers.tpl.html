@@ -120,31 +120,32 @@
     $(document).bind('ready', function(){
         $('#nav_option_servers').addClass('active');
 
-$('#myModal').on('show', function() {
-        console.log("Here");
-        var xhr = new XMLHttpRequest();
-xhr.open("GET", "api/server_detail.php");
-xhr.onreadystatechange = function () {
-  if (this.readyState == 4) {
-    if(this.status == 200)
-    {
-        var obj = JSON.parse(this.responseText);
-        $('#asterisk_version').html(obj.asterisk_version);
-        $('#freepbx_version').html(obj.freepbx_version);
-        $('#centos_version').html(obj.centos_version);
-        $('#kernel_version').html(obj.kernel_version);
-        $('#centos_updates').html(obj.centos_updates);
-        $('#freepbx_updates').html(obj.freepbx_updates);
-    }
-    else
-    {
-        $('#infos').html("Error getting server details");
-    }
-  }
-};
-xhr.send(null);
-    });
+        $('#myModal').on('shown', function() {
+            console.log("Here");
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "api/server_detail.php");
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4)
+                {
+                    if(this.status == 200)
+                    {
+                        var obj = JSON.parse(this.responseText);
+                        $('#asterisk_version').html(obj.asterisk_version);
+                        $('#freepbx_version').html(obj.freepbx_version);
+                        $('#centos_version').html(obj.centos_version);
+                        $('#kernel_version').html(obj.kernel_version);
+                        $('#centos_updates').html(obj.centos_updates);
+                        $('#freepbx_updates').html(obj.freepbx_updates);
+                    }
+                    else
+                    {
+                        $('#infos').html("Error getting server details");
+                    }
+                }
+            };
 
+            xhr.send(null);
+        });
     });
 </script>
 <!--%%tpl_servers_list--> 
