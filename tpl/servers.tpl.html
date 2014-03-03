@@ -54,7 +54,7 @@
             	    <a class="btn btn-small btn-danger" href="javascript:sm_delete('{server_id}', 'servers');" title="{label_delete}">
                         <i class="icon-remove icon-white"></i>
                     </a>
-                    <a class="btn btn-small" href="#myModal" role="button" class="btn" data-toggle="modal">
+                    <a id="detail-info-{server_id}" data-id="{server_id}" class="btn btn-small detail-info" href="#myModal" role="button" class="btn">
                         <i class="icon-eye-open"></i>
                     </a>
                 </td>
@@ -120,10 +120,12 @@
     $(document).bind('ready', function(){
         $('#nav_option_servers').addClass('active');
 
-        $('#myModal').on('shown', function() {
-            console.log("Here");
+        $('.detail-info').on('click', function(event) {
+            var myBookId = jQuery(this).attr("data-id");
+            console.log("Here ["+myBookId+"]");
+            console.log("relatedTarget is: " + event.relatedTarget);
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "api/server_detail.php");
+            xhr.open("GET", "api/server_detail.php?id="+myBookId);
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4)
                 {
@@ -145,6 +147,7 @@
             };
 
             xhr.send(null);
+            $('#myModal').modal();
         });
     });
 </script>
