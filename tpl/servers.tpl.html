@@ -32,7 +32,7 @@
         <tbody>
             <!--%tpl_repeat_servers-->
             <tr>
-                <td>
+                <td rowspan="2">
                     <span class="label label-status-{status}">
                         <a href="#" title="{error}">{status}</a>
                     </span>
@@ -47,7 +47,7 @@
                 <td>{active}</td>
                 <!-- <td>{email}</td>
                 <td>{sms}</td> -->
-                <td>
+                <td rowspan="2">
                     <a class="btn btn-small" href="index.php?type=servers&amp;edit={server_id}" title="{label_edit}">
                         <i class="icon-pencil"></i>
                     </a>
@@ -58,6 +58,9 @@
                         <i class="icon-eye-open"></i>
                     </a>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="7">{actions}</td>
             </tr>
             <!--%%tpl_repeat_servers--> 
             {servers} 
@@ -214,6 +217,12 @@
                         <option value="yes" {edit_sms_selected_yes}>{label_yes}</option>
                         <option value="no" {edit_sms_selected_no}>{label_no}</option>
                     </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="actions">actions</label>
+                <div class="controls">
+                    <textarea name="actions">{edit_value_actions}</textarea>
                 </div>
             </div>
             <div class="form-actions">

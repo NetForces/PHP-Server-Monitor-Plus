@@ -93,6 +93,7 @@ class modServers extends modCore {
 					'titlemode' => sm_get_lang('system', 'edit') . ' ' . $edit_server['label'],
 					'edit_server_id' => $edit_server['server_id'],
 					'edit_value_label' => $edit_server['label'],
+					'edit_value_actions' => $edit_server['actions'],
 					'edit_value_ip' => $edit_server['ip'],
 					'edit_value_port' => $edit_server['port'],
 					'edit_type_selected_' . $edit_server['type'] => 'selected="selected"',
@@ -127,6 +128,7 @@ class modServers extends modCore {
 				'`status`, '.
 				'`error`, '.
 				'`rtime`, '.
+				'`actions`, '.
 				'IF('.
 					'`last_check`=\'0000-00-00 00:00:00\', '.
 					'\'never\', '.
@@ -190,6 +192,7 @@ class modServers extends modCore {
 				'active' => $_POST['active'],
 				'email' => $_POST['email'],
 				'sms' => $_POST['sms'],
+				'actions' => $_POST['actions'],
 			);
 
 			// check for edit or add

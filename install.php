@@ -88,6 +88,8 @@ $tables = array(
 				  `active` enum('yes','no') NOT NULL default 'yes',
 				  `email` enum('yes','no') NOT NULL default 'yes',
 				  `sms` enum('yes','no') NOT NULL default 'no',
+				  `config_data` blob,
+				  `actions` blob
 				  PRIMARY KEY  (`server_id`)
 				) ENGINE=MyISAM  DEFAULT CHARSET=utf8;",
 			1 => "INSERT INTO `" . SM_DB_PREFIX . "servers` (`ip`, `port`, `label`, `type`, `status`, `error`, `rtime`, `last_online`, `last_check`, `active`, `email`, `sms`) VALUES ('http://sourceforge.net/index.php', 80, 'SourceForge', 'website', 'on', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'yes', 'yes', 'yes'), ('smtp.gmail.com', 465, 'Gmail SMTP', 'service', 'on', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'yes', 'yes', 'yes')",
